@@ -1,12 +1,24 @@
 #include <iostream>
 #include "Classes.h"
+
 using namespace std;
+
+#define Pause console::wait();
+
+string Name;
+
+void EnterName()
+{
+    cout << "Your Name: ";
+    getline(cin, Name);
+}
 
 int main()
 {
-    const string Word = "This is very Epic";
+    EnterName();
+
+    string Word = Name + " is so Wholesome";
 
     console::log(Word);
-
-    console::wait();
+    Pause;
 }
