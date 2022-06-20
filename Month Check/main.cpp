@@ -1,7 +1,17 @@
-#include <iostream>
-#include <limits>
-using namespace std;
-#define STRING_NUM "Enter a number 1-12: "
+#include "Global.h"
+
+int GetMonth();
+string GiveMonth(int x);
+
+int main()
+{
+    int _input;
+    while(true)
+    {
+        _input = GetMonth();
+        cout << GiveMonth(_input) << endl;
+    }
+}
 
 int GetMonth()
 {
@@ -15,7 +25,6 @@ int GetMonth()
     }
     return x;
 }
-
 string GiveMonth(int x)
 {
     string Month;
@@ -35,14 +44,4 @@ string GiveMonth(int x)
         case 12: Month = "December"; break;
     }
     return Month;
-}
-
-int main()
-{
-    int _input;
-    while(true)
-    {
-        _input = GetMonth();
-        cout << GiveMonth(_input) << endl;
-    }
 }
