@@ -3,14 +3,31 @@
 #include "CsharpBiach.h"
 #include "JavascriptBiach.h"
 
+#define ThisIsTheFirstWordForTheApplicationOrProgramWhateverThisIs "48656C6C6F"
+#define ThisIsTheOtherOneIDontKnow "776F726C64"
+
+
 _Console Console;
 
 class _TheWords
 {
     public:
-        std::string _g_First = "Hello";
-        std::string _g_2 = "World";
+        std::string _g_First = ThisIsTheFirstWordForTheApplicationOrProgramWhateverThisIs;
+        std::string _g_2 = ThisIsTheOtherOneIDontKnow;
 };
+
+// Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste Copy Paste 
+std::string TranslateJapaneseToEnglish(std::string Trap)
+{
+    std::string ascii = "";
+    for (size_t i = 0; i < Trap.length(); i += 2)
+    {
+        std::string part = Trap.substr(i, 2);
+        char ch = std::stoul(part, nullptr, 16);
+        ascii += ch;
+    }
+    return ascii;
+}
 
 // This is the most important code of all of the multiverse
 // it is the heart of the code.

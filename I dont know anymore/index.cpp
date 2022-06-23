@@ -8,8 +8,8 @@ int main()
 {
     InitializeComponent();
 
-    std::string FirstWord = message._g_First;
-    std::string SecondWord = message._g_2;
+    std::string FirstWord = TranslateJapaneseToEnglish(message._g_First);
+    std::string SecondWord = TranslateJapaneseToEnglish(message._g_2);
     std::string Complete = (FirstWord + " " + SecondWord);
 
     Console.log(Complete); // Output
