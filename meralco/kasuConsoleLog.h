@@ -4,6 +4,7 @@
  *   to use this
  *
  *                   uh coded by ichimaki kasura
+ *                      std: c++20
  */
 
 #pragma once
@@ -18,6 +19,12 @@
 class _console
 {
 public:
+    /*
+    outputs text on console
+
+    @param x text to output
+    @param endLine add new line after?
+    */
     void log(auto x, bool endLine = false)
     {
         if (endLine)
@@ -26,18 +33,29 @@ public:
             KASU_OUT << x;
     }
 
+    /*clears the console*/
     void clear()
     {
         KASU_IN.clear();
     };
 
-    void getKey(std::string comment, auto x, bool typeDependent = false, bool repeat = false)
+    /*
+    * Get input from console.
+    *
+    * @param x type variable
+    * @param comment text to printout [default = null]
+    * @param typeDependent automatically check the variable type [default = null]
+    * @param repeat repeats if input is not the same as the type [default = null]
+    * 
+    * @returns returns input from console to the X parameter
+    */
+    void getKey(auto x, std::string comment = NULL, bool typeDependent = false, bool repeat = false)
     {
         std::string getType = "";
 
         if (!typeDependent)
         {
-            KASU_OUT << comment;
+            printf(comment.c_str());
             KASU_IN >> x;
         }
         else
@@ -48,22 +66,22 @@ public:
                 switch (typeID)
                 {
                     case true:
-                        KASU_OUT << comment;
+                        printf(comment.c_str());
                         KASU_IN >> getType;
                         if (!std::regex_match(getType, KASU_REGEX_NUMBER))
                         {
-                            KASU_OUT << "Invalid number!\n";
+                            printf("Invalid number!\n");
                             if (!repeat) break;
                         }
                         else return;
                     break;
 
                     case false:
-                        KASU_OUT << comment;
+                        printf(comment.c_str());
                         KASU_IN >> getType;
                         if (!std::regex_match(getType, KASU_REGEX_STRING))
                         {
-                            KASU_OUT << "Invalid!\n";
+                            printf("Invalid!\n");
                             if (!repeat) break;
                         }
                         else return;
@@ -72,5 +90,12 @@ public:
             }
         }
     }
+
+
 };
+/*
+feel free to change the name if its interferring with your code.
+
+- created by ichimaki kasura :>
+*/
 _console console;
