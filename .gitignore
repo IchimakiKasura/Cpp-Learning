@@ -1,6 +1,4 @@
-/.vscode
-/a.exe
-/lmao.txt
-/Web Scrape/curl
-**.exe
-spinning cube/.vscode
+*.vscode
+*x64
+*.exe
+*.vs
