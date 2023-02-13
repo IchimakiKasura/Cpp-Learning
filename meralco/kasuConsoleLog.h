@@ -1,10 +1,10 @@
 /*
-*   uhh idk i tried though so 
-*   yeah feel free i think?
-*   to use this
-* 
-*                   uh coded by ichimaki kasura
-*/
+ *   uhh idk i tried though so
+ *   yeah feel free i think?
+ *   to use this
+ *
+ *                   uh coded by ichimaki kasura
+ */
 
 #pragma once
 #include <iostream>
@@ -42,36 +42,32 @@ public:
         }
         else
         {
-            if (typeid(x) == typeid(int))
+            bool typeID = typeid(x) == typeid(int);
+            while (1)
             {
-                if (!typeDependent)
-                    return;
-
-                while(1)
+                switch (typeID)
                 {
-                    KASU_OUT << comment;
-                    KASU_IN >> getType;
-                    if (!std::regex_match(getType, KASU_REGEX_NUMBER))
-                    {
-                        KASU_OUT << "Invalid number!\n";
-                        if (!repeat) break;
-                    } else break;
-                }
-            }
-            else
-            {
-                if (!typeDependent)
-                    return;
+                    case true:
+                        KASU_OUT << comment;
+                        KASU_IN >> getType;
+                        if (!std::regex_match(getType, KASU_REGEX_NUMBER))
+                        {
+                            KASU_OUT << "Invalid number!\n";
+                            if (!repeat) break;
+                        }
+                        else return;
+                    break;
 
-                while(1)
-                {
-                    KASU_OUT << comment;
-                    KASU_IN >> getType;
-                    if (!std::regex_match(getType, KASU_REGEX_STRING))
-                    {
-                        KASU_OUT << "Invalid!\n";
-                        if (!repeat) break;
-                    } else break;
+                    case false:
+                        KASU_OUT << comment;
+                        KASU_IN >> getType;
+                        if (!std::regex_match(getType, KASU_REGEX_STRING))
+                        {
+                            KASU_OUT << "Invalid!\n";
+                            if (!repeat) break;
+                        }
+                        else return;
+                    break;
                 }
             }
         }
